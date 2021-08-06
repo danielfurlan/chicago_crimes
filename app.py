@@ -385,7 +385,7 @@ app.layout =html.Div(
             children = [
                 html.A(
                         html.Img(id = "gitimg",src="./assets/github2.png"),
-                        href="https://github.com/danielfurlan", target='_blank'
+                        href="https://github.com/danielfurlan/chicago_crimes", target='_blank'
                         ),
                 html.A(
                         html.Img(id = "linkimg",src="./assets/linkedin.png"),
