@@ -2,14 +2,14 @@ Repository to create an interactive dashboard using DASH Plotly to visualize cri
 
 There are 3 main data files that this application uses: 
 
-1) **all_data.csv**: 
-2) **Boundaries**
+1) **all_data.csv** (stored in SQLite. You will not find it here! But we can achieve it performing the manipulations below)
+2) **boundaries**
 3) **m.csv**
 
 A screenshot of the *all_data* data frame (all primary modifications to obtain the used tables were made using **Kaggle** environment):
 ![Data frame](https://github.com/danielfurlan/chicago_crimes/blob/master/images/df_alldata.png)
 
-The main source for the crimes statistics come from here : [kaggle!](https://www.kaggle.com/chicago/chicago-crime) 
+The main source for the crimes statistics comes from here : [kaggle!](https://www.kaggle.com/chicago/chicago-crime) 
 
 From that file, we can achieve the 1) and 3) data that we use by doing **Extraction** and **Transformation**.
 
