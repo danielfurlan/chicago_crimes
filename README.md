@@ -27,14 +27,16 @@ To calculate the number of crimes with respect to *Location*, *District* and *da
 Using the **all_data** table, we are able to perform some SQL queries in the dataset that is stored in a SQLite database.
 
 2 main queries are perfomed when user interacts with the app:
-
+```
 query = """select "District","date","Districtperday" as "total crimes" 
           from crimes_alldata 
           where "District" in {} and "date" between '{}' and '{}' 
           group by "District", "date", "Districtperday" """.format(sel_districts,start,end)
+```
 
 and:
 
+```
 query = """select "District", "LocationDescription", sum("total") as "TOTAL" 
         from (
                 select "District","date", "LocationDescription", count("Location/Distrperday") as total 
@@ -43,3 +45,4 @@ query = """select "District", "LocationDescription", sum("total") as "TOTAL"
                         group by "District", "LocationDescription","date", "Location/Distrperday") as sss
         group by "District", "LocationDescription" """.format(sel_districts,start,end,str_locations)
 
+```
