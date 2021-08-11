@@ -9,7 +9,7 @@ There are 3 main data files that this application uses:
 A screenshot of the *all_data* data frame (all primary modifications to obtain the used tables were made using **Kaggle** environment):
 ![Data frame](https://github.com/danielfurlan/chicago_crimes/blob/master/images/df_alldata.png)
 
-The main source for the crimes statistics come from here : ![kaggle!](https://www.kaggle.com/chicago/chicago-crime) 
+The main source for the crimes statistics come from here : [kaggle!](https://www.kaggle.com/chicago/chicago-crime) 
 
 From that file, we can achieve the 1) and 3) data that we use by doing **Extraction** and **Transformation**.
 
@@ -27,14 +27,14 @@ To calculate the number of crimes with respect to *Location*, *District* and *da
 Using the **all_data** table, we are able to perform some SQL queries in the dataset that is stored in a SQLite database.
 
 2 main queries are perfomed when user interacts with the app:
-'''
+
 query = """select "District","date","Districtperday" as "total crimes" 
           from crimes_alldata 
           where "District" in {} and "date" between '{}' and '{}' 
           group by "District", "date", "Districtperday" """.format(sel_districts,start,end)
-'''
+
 and:
-'''
+
 query = """select "District", "LocationDescription", sum("total") as "TOTAL" 
         from (
                 select "District","date", "LocationDescription", count("Location/Distrperday") as total 
@@ -42,4 +42,4 @@ query = """select "District", "LocationDescription", sum("total") as "TOTAL"
                         where "District" in {} and "date" between '{}' and '{}' and "LocationDescription" in {}
                         group by "District", "LocationDescription","date", "Location/Distrperday") as sss
         group by "District", "LocationDescription" """.format(sel_districts,start,end,str_locations)
-'''
+
